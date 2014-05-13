@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    script(type="text/javascript", src="/lib/angular/angular.min.js")
+    script(type="text/javascript", src="/lib/bootstrap/dist/js/bootstrap.min.js")
+    link(rel='stylesheet', href="/lib/bootstrap/dist/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')    
+  body(Style="padding-top: 70px;")
+    nav(role="navigation").navbar.navbar-inverse.navbar-fixed-top
+        .navbar-header
+            button(type="button", data-toggle="collapse", data-target=".navbar-ex1-collapse").navbar-toggle
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a(href="#" ).navbar-brand Blog
+        .collapse.navbar-collapse.navbar-ex1-collapse            
+            form(role="search").navbar-form.navbar-right
+                .form-group 
+                    input(type="text", placeholder="Search").form-control
+    .container(ng-controller='PostCtrl')
+        .row
+            .col-md-3
+                .input-group
+                        input.form-control(type="text", ng-keypress="sendMessage($event)")
+                        span.input-group-btn
+                            button.btn.btn-default(type="button", ng-click="sendMessage($event)")
+                                i.glyphicon.glyphicon-send
+            .col-md-9
+                .panel.panel-default
+                    .panel-heading
+                        h3.panel-title Posts
+                    .panel-body
+                        div
+                            ul.list-group
+                                li.list-group-item(ng-repeat="post in posts track by $id(post)") {{post.message}}

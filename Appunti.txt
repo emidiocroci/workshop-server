@@ -1,0 +1,14 @@
+Appunti per workshop:
+    - applicazione angular si dichiara con istruzione module
+    - ogni applicazione è un module, che può dipendere da altri
+    - track per ng-repeat -> funzione di mapping tra elemento della collezione e elemento del dom. Nel caso non si abbia un campo univoco si può utilizzare la funzione $id() oppure $index
+    - dichiarazione controller/servizi con array -> permette la minificazione!! Nella minificazione gli argomenti della funzione vengono rinominati, ma la stringa esplicita permette ad angular di risolvere comunque l'elemento
+    - spiegare differenza tra index.html e index-async.html
+    - $apply permette di eseguire un'espressione in angular da un altro contesto
+        Scope's $apply() method transitions through the following stages:
+            1. The expression is executed using the $eval() method.
+            2. Any exceptions from the execution of the expression are forwarded to the $exceptionHandler service.
+            3. The watch listeners are fired immediately after the expression was executed using the $digest() method.
+    - direttiva per enter-or-click -> direttiva che esegue una funzione al click su un pulsante enter (restrict A)
+    - ng-valid per evitare invio di messaggi vuoti
+    - servizio di socket.io -> rende il controller testabile!
